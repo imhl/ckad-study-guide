@@ -1,12 +1,12 @@
 # Building the Docker Image
 
-You will need to have a JDK 21 installed on your machine. Run the following command to compile the code and build the JAR file.
+The Docker image contains two stages.
 
-```
-$ ./mvnw package spring-boot:repackage
-```
+One stage comprises a Java Development Kit (JDK 21) image, and compiles the application into a JAR file. This stage obviates you needing to install a JDK environment locally and building the app yourself.
 
-Then build the image with the following command:
+The other stage holds a Java Runtime Environment (JRE 21) image. This stage copies the compiled JAR from the build stage and runs the application.
+
+To build the image, run the following command:
 
 ```
 $ docker build -t java-hello-world:1.0.0 .
